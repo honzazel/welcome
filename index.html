@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>Jan Zelezny</title>
+    <title>Hello, World!</title>
     <script>
         function checkPassword() {
             var password = prompt("Please enter the password:");
@@ -11,7 +11,7 @@
                 document.body.style.display = "none"; // Hide content if password is incorrect
             } else {
                 document.body.style.display = "block"; // Show content if password is correct
-                displayDateTime(); // Call function to display date and time
+                setInterval(displayDateTime, 1); // Update the time every millisecond
             }
         }
 
@@ -36,7 +36,7 @@
     </script>
 </head>
 <body style="display:none;">
-    <h1>now</h1>
+    <h1>Hello, world!</h1>
     <p id="datetime"></p>
 </body>
 </html>
