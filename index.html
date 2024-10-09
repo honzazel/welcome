@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8" />
     <title>Hello, World!</title>
+    <script>
+        function checkPassword() {
+            var password = prompt("Please enter the password:");
+            if (password !== "0808") {
+                alert("Incorrect password. Access denied.");
+                document.body.style.display = "none"; // Hide content if password is incorrect
+            } else {
+                document.body.style.display = "block"; // Show content if password is correct
+            }
+        }
+        window.onload = checkPassword; // Run checkPassword when the page loads
+    </script>
 </head>
-<body>
+<body style="display:none;">
     <h1>Hello, world!</h1>
 </body>
 </html>
