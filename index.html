@@ -2,11 +2,10 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>Jan Zelezny</title>
+    <title>Hello, World!</title>
     <script>
-        // Set the reference start time to today, 18:00 GMT+2
-        var referenceTime = new Date();
-        referenceTime.setHours(18, 0, 0, 0); // Set hours, minutes, seconds, and milliseconds to 18:00:00.000
+        // Set the reference start time to tomorrow, 18:00 GMT+2 (October 14, 2024)
+        var referenceTime = new Date(2024, 9, 14, 18, 0, 0, 0); // October is 9 because months are zero-based
         var utcOffset = 2 * 60 * 60 * 1000; // GMT+2 in milliseconds
         referenceTime = new Date(referenceTime.getTime() - utcOffset); // Adjust for GMT+2
 
@@ -29,20 +28,27 @@
 
         function displayElapsedTime() {
             var now = new Date();
-            var elapsedTime = now - referenceTime; // Calculate elapsed time since 18:00 GMT+2 today
+            var elapsedTime = now - referenceTime; // Calculate elapsed time since 18:00 GMT+2 tomorrow (14.10.2024)
 
             if (elapsedTime < 0) {
                 // If the time is before 18:00, show that no time has passed yet
-                document.getElementById("elapsed").innerText = "Elapsed Time: 0h 0m 0s 0ms";
+                document.getElementById("elapsed").innerText = "Elapsed Time: 0y 0m 0d 0h 0m 0s 0ms";
                 return;
             }
 
-            var hours = Math.floor(elapsedTime / (1000 * 60 * 60));
-            var minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000);
-            var milliseconds = elapsedTime % 1000;
+            // Create a date object to represent the time difference
+            var elapsedDate = new Date(elapsedTime);
 
-            var elapsedTimeString = `Elapsed Time: ${hours}h ${minutes}m ${seconds}s ${milliseconds}ms`;
+            // Calculate years, months, days, hours, minutes, seconds, and milliseconds
+            var years = elapsedDate.getUTCFullYear() - 1970; // Subtract epoch year
+            var months = elapsedDate.getUTCMonth(); // Months are already zero-based
+            var days = elapsedDate.getUTCDate() - 1; // Subtract 1 to get days difference
+            var hours = elapsedDate.getUTCHours();
+            var minutes = elapsedDate.getUTCMinutes();
+            var seconds = elapsedDate.getUTCSeconds();
+            var milliseconds = elapsedDate.getUTCMilliseconds();
+
+            var elapsedTimeString = `Elapsed Time: ${years}y ${months}m ${days}d ${hours}h ${minutes}m ${seconds}s ${milliseconds}ms`;
             document.getElementById("elapsed").innerText = elapsedTimeString;
         }
 
