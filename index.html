@@ -4,19 +4,19 @@
     <meta charset="UTF-8" />
     <title>Hello, World!</title>
     <script>
-        var referenceTime = new Date(2024, 9, 14, 0, 0, 0, 0); 
-        var utcOffset = 2 * 60 * 60 * 1000;
+        var referenceTime = new Date(2024, 9, 14, 0, 0, 0, 0); // October 14, 2024, 00:00:00 GMT+2
+        var utcOffset = 2 * 60 * 60 * 1000; // GMT+2 in milliseconds
         referenceTime = new Date(referenceTime.getTime() - utcOffset);
 
         function displayDateTime() {
             var now = new Date();
-            var utcOffset = 2 * 60 * 60 * 1000; 
+            var utcOffset = 2 * 60 * 60 * 1000;
             var localTime = new Date(now.getTime() + utcOffset);
 
             var year = localTime.getFullYear();
-            var month = ('0' + (localTime.getMonth() + 1)).slice(-2); 
+            var month = ('0' + (localTime.getMonth() + 1)).slice(-2);
             var day = ('0' + localTime.getDate()).slice(-2);
-            var hours = ('0' + localTime.getUTCHours()).slice(-2); // Adjust for GMT+2
+            var hours = ('0' + localTime.getUTCHours()).slice(-2);
             var minutes = ('0' + localTime.getUTCMinutes()).slice(-2);
             var seconds = ('0' + localTime.getUTCSeconds()).slice(-2);
             var milliseconds = ('00' + localTime.getUTCMilliseconds()).slice(-3);
@@ -29,15 +29,11 @@
             var now = new Date();
             var elapsedTime = now - referenceTime;
 
-            }
-
-            // Create a date object to represent the time difference
             var elapsedDate = new Date(elapsedTime);
 
-            // Calculate years, months, days, hours, minutes, seconds, and milliseconds
-            var years = elapsedDate.getUTCFullYear() - 1970; // Subtract epoch year
-            var months = elapsedDate.getUTCMonth(); // Months are already zero-based
-            var days = elapsedDate.getUTCDate() - 1; // Subtract 1 to get days difference
+            var years = elapsedDate.getUTCFullYear() - 1970;
+            var months = elapsedDate.getUTCMonth();
+            var days = elapsedDate.getUTCDate() - 1;
             var hours = elapsedDate.getUTCHours();
             var minutes = elapsedDate.getUTCMinutes();
             var seconds = elapsedDate.getUTCSeconds();
@@ -48,14 +44,14 @@
         }
 
         window.onload = function() {
-            setInterval(displayDateTime, 1); // Update the time every millisecond
-            setInterval(displayElapsedTime, 1); // Start the elapsed time timer
+            setInterval(displayDateTime, 1);
+            setInterval(displayElapsedTime, 1);
         }
     </script>
 </head>
 <body>
     <h1>Hello, world!</h1>
     <p id="datetime"></p>
-    <p id="elapsed"></p> <!-- Add a new paragraph to display the elapsed time -->
+    <p id="elapsed"></p>
 </body>
 </html>
