@@ -21,7 +21,7 @@
             var seconds = ('0' + localTime.getUTCSeconds()).slice(-2);
             var milliseconds = ('00' + localTime.getUTCMilliseconds()).slice(-3);
 
-            var dateTimeString = `date and time: ${year}-${month}-${day} ${hours}:${minutes}:${seconds}.${milliseconds}`;
+            var dateTimeString = `datum a čas: ${year}-${month}-${day} ${hours}:${minutes}:${seconds}.${milliseconds}`;
             document.getElementById("datetime").innerText = dateTimeString;
         }
 
@@ -39,7 +39,7 @@
             var seconds = elapsedDate.getUTCSeconds();
             var milliseconds = elapsedDate.getUTCMilliseconds();
 
-            var elapsedTimeString = `started: ${years}y ${months}m ${days}d ${hours}h ${minutes}m ${seconds}s ${milliseconds}ms`;
+            var elapsedTimeString = `start COVIDU: ${years}y ${months}m ${days}d ${hours}h ${minutes}m ${seconds}s ${milliseconds}ms`;
             document.getElementById("elapsed").innerText = elapsedTimeString;
         }
 
@@ -50,7 +50,7 @@
     </script>
 </head>
 <body>
-    <h1>Winter Arc</h1>
+    <h1>Ahoj, Marku. přeju ti ať se brzo uzdravíš z COVIDU</h1>
     <p id="datetime"></p>
     <p id="elapsed"></p>
 </body>
