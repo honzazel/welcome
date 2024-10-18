@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Jan Zelezny</title>
     <script>
-        var referenceTime = new Date(2024, 9, 15, 2, 0, 0, 0); // October 14, 2024, 00:00:00 GMT+2
+        var referenceTime = new Date(2024, 9, 18, 16, 0, 0, 0); // October 14, 2024, 00:00:00 GMT+2
         var utcOffset = 2 * 60 * 60 * 1000; // GMT+2 in milliseconds
         referenceTime = new Date(referenceTime.getTime() - utcOffset);
 
@@ -39,7 +39,7 @@
             var seconds = elapsedDate.getUTCSeconds();
             var milliseconds = elapsedDate.getUTCMilliseconds();
 
-            var elapsedTimeString = `start COVIDU: ${years}y ${months}m ${days}d ${hours}h ${minutes}m ${seconds}s ${milliseconds}ms`;
+            var elapsedTimeString = `start: ${years}y ${months}m ${days}d ${hours}h ${minutes}m ${seconds}s ${milliseconds}ms`;
             document.getElementById("elapsed").innerText = elapsedTimeString;
         }
 
@@ -50,7 +50,7 @@
     </script>
 </head>
 <body>
-    <h1>Ahoj, Marku. přeju ti ať se brzo uzdravíš z COVIDU</h1>
+    <h1>www.janzelezny.com</h1>
     <p id="datetime"></p>
     <p id="elapsed"></p>
 </body>
