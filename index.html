@@ -1,63 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Jan Zelezny</title>
-    <script>
-        var referenceTime = new Date(2024, 9, 18, 17, 0, 0, 0); // October 18, 2024, 17:00:00 GMT+2
-        var utcOffset = 2 * 60 * 60 * 1000; // GMT+2 in milliseconds
-        referenceTime = new Date(referenceTime.getTime() - utcOffset);
-
-        function displayDateTime() {
-            var now = new Date();
-            var utcOffset = 2 * 60 * 60 * 1000;
-            var localTime = new Date(now.getTime() + utcOffset);
-
-            var year = localTime.getFullYear();
-            var month = ('0' + (localTime.getMonth() + 1)).slice(-2);
-            var day = ('0' + localTime.getDate()).slice(-2);
-            var hours = ('0' + localTime.getUTCHours()).slice(-2);
-            var minutes = ('0' + localTime.getUTCMinutes()).slice(-2);
-            var seconds = ('0' + localTime.getUTCSeconds()).slice(-2);
-            var milliseconds = ('00' + localTime.getUTCMilliseconds()).slice(-3);
-
-            var dateTimeString = `datum a čas: ${year}-${month}-${day} ${hours}:${minutes}:${seconds}.${milliseconds}`;
-            document.getElementById("datetime").innerText = dateTimeString;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trust in God</title>
+    <style>
+        body {
+            background-color: #808080; /* Grey background */
+            color: #0511f2; /* Blue font */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
         }
-
-        function displayElapsedTime() {
-            var now = new Date();
-            var elapsedTime = now - referenceTime;
-
-            var elapsedDate = new Date(elapsedTime);
-
-            var years = elapsedDate.getUTCFullYear() - 1970;
-            var months = elapsedDate.getUTCMonth();
-            var days = elapsedDate.getUTCDate() - 1;
-            var hours = elapsedDate.getUTCHours();
-            var minutes = elapsedDate.getUTCMinutes();
-            var seconds = elapsedDate.getUTCSeconds();
-            var milliseconds = elapsedDate.getUTCMilliseconds();
-
-            var elapsedTimeString = `start: ${years}y ${months}m ${days}d ${hours}h ${minutes}m ${seconds}s ${milliseconds}ms`;
-            document.getElementById("elapsed").innerText = elapsedTimeString;
+        #content {
+            display: none;
         }
-
-        window.onload = function() {
-            setInterval(displayDateTime, 1);
-            setInterval(displayElapsedTime, 1);
+        #login-form {
+            text-align: center;
         }
-    </script>
+        input {
+            padding: 10px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>www.janzelezny.com</h1>
-    <p id="datetime"></p>
-    <p id="elapsed"></p>
+    <div id="login-form">
+        <h2>Enter the Password</h2>
+        <input type="password" id="password" placeholder="Enter Password">
+        <br>
+        <button onclick="checkPassword()">Submit</button>
+        <p id="error-message" style="color: red; display: none;">Incorrect password, try again.</p>
+    </div>
 
-    <!-- Embed the new YouTube video with autoplay -->
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/PWtrScGX3QI?autoplay=1" 
-            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen></iframe>
+    <div id="content">
+        <h1>Put your trust in God</h1>
+    </div>
 
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            if (password === "8080") {
+                document.getElementById("login-form").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            } else {
+                document.getElementById("error-message").style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>
