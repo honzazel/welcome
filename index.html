@@ -6,55 +6,30 @@
     <title>Jan Zelezny</title>
     <style>
         body {
-            background-color: #2d3ee4; /* Dark blue background */
-            color: #f2fbfa; /* Light cyan font */
-            font-family: Courier, monospace; /* Courier font */
+            background-color: #e4e4e4;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+        }
+
+        .container {
             text-align: center;
-        }
-        #content {
-            display: none;
-        }
-        #login-form {
-            text-align: center;
-        }
-        input {
-            padding: 10px;
-            margin-top: 20px;
-        }
-        button {
-            padding: 10px;
-            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <div id="login-form">
-        <h2>Enter the Password</h2>
-        <input type="password" id="password" placeholder="Enter Password">
-        <br>
-        <button onclick="checkPassword()">Submit</button>
-        <p id="error-message" style="color: red; display: none;">Incorrect password, try again.</p>
+    <div class="container">
+        <img src="https://github.com/honzazel/welcome/raw/main/Picture1.jpg" alt="Welcome Image">
     </div>
-
-    <div id="content">
-        <h1>trust in God</h1>
-    </div>
-
-    <script>
-        function checkPassword() {
-            var password = document.getElementById("password").value;
-            if (password === "8080") {
-                document.getElementById("login-form").style.display = "none";
-                document.getElementById("content").style.display = "block";
-            } else {
-                document.getElementById("error-message").style.display = "block";
-            }
-        }
-    </script>
 </body>
 </html>
