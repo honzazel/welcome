@@ -2,49 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Countdown to June 15th Midnight (CEST)</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      text-align: center;
-      padding-top: 100px;
-    }
-    #countdown {
-      font-size: 48px;
-      font-weight: bold;
-    }
-  </style>
+  <title>Jan Zelezny</title>
 </head>
 <body>
-  <h1>Countdown to June 15th, 00:00 (CEST)</h1>
-  <div id="countdown">Loading...</div>
+  <h1>Jan Zelezny</h1>
 
-  <script>
-    function updateCountdown() {
-      // Target: June 15, 00:00 CEST (GMT+2)
-      const targetDate = new Date(Date.UTC(2025, 5, 14, 22, 0, 0)); // 14 June, 22:00 UTC == 15 June, 00:00 CEST
-
-      const now = new Date();
-      const diff = targetDate - now;
-
-      if (diff <= 0) {
-        document.getElementById("countdown").innerText = "Time's up!";
-        clearInterval(timer);
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      document.getElementById("countdown").innerText =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    const timer = setInterval(updateCountdown, 1000);
-    updateCountdown(); // initial call
-  </script>
 </body>
 </html>
