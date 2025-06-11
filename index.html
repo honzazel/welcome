@@ -2,64 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Happy Birthday, Kia</title>
+  <title>Countdown to June 15th Midnight (CEST)</title>
   <style>
     body {
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
       text-align: center;
-      padding: 50px;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
+      padding-top: 100px;
     }
-    h1 {
-      font-size: 60px;
-      color: #fff700;
-      text-shadow: 3px 3px #ff00ff;
-      animation: bounce 1s infinite;
-    }
-    .shapes {
-      margin-top: 30px;
-    }
-    .circle, .square, .triangle {
-      display: inline-block;
-      margin: 20px;
-    }
-    .circle {
-      width: 100px;
-      height: 100px;
-      background: #00f7ff;
-      border-radius: 50%;
-    }
-    .square {
-      width: 100px;
-      height: 100px;
-      background: #ff6b6b;
-    }
-    .triangle {
-      width: 0;
-      height: 0;
-      border-left: 50px solid transparent;
-      border-right: 50px solid transparent;
-      border-bottom: 100px solid #ffb347;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-    img {
-      margin-top: 30px;
-      width: 200px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    #countdown {
+      font-size: 48px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <h1>HAPPY BIRTHDAY, KIA!!!!!!</h1>
-  <div class="shapes">
-    <div class="circle"></div>
-    <div class="square"></div>
-    <div class="triangle"></div>
-  </div>
-  <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" alt="Birthday Fun">
+  <h1>Countdown to June 15th, 00:00 (CEST)</h1>
+  <div id="countdown">Loading...</div>
+
+  <script>
+    function updateCountdown() {
+      // Target: June 15, 00:00 CEST (GMT+2)
+      const targetDate = new Date(Date.UTC(2025, 5, 14, 22, 0, 0)); // 14 June, 22:00 UTC == 15 June, 00:00 CEST
+
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerText = "Time's up!";
+        clearInterval(timer);
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("countdown").innerText =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    const timer = setInterval(updateCountdown, 1000);
+    updateCountdown(); // initial call
+  </script>
 </body>
 </html>
